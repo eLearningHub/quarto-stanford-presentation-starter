@@ -1,0 +1,28 @@
+name: Render
+
+# Builds the example slides with a pinned Quarto and TinyTeX, so a change in
+# Quarto or LaTeX that breaks the template shows up here first.
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.9.38
+          tinytex: true
+
+      - name: Render
+        run: quarto render quarto_slides.qmd
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: "**/quarto_slides.pdf"
