@@ -1,0 +1,9 @@
+% Quarto's before-body partial without its title frame: style/beamerprefix.tex
+% draws this template's own title page (logo, affiliation, email).
+$if(title)$
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+$endif$

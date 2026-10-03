@@ -11,7 +11,8 @@ bibliography: bibliography.bib
 format:
   beamer:
     pdf-engine: xelatex
-    template: style/beamer.template
+    template-partials:
+      - style/before-body.tex
     include-in-header: style/beamerheader.tex
     include-before-body: style/beamerprefix.tex
     include-after-body: style/beamersuffix.tex
